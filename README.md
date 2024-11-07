@@ -2,7 +2,7 @@
 
 ![잭슨](https://github.com/user-attachments/assets/7b49c6a7-f222-4f06-922c-1d3ed24d0889)
 
-**Heatsink**: The heatsink is used to cool down the processor of the Jetson Nano. It helps dissipate heat during extended usage, preventing overheating.
+1. **Heatsink**: The heatsink is used to cool down the processor of the Jetson Nano. It helps dissipate heat during extended usage, preventing overheating.
 
 2. **GPIO Pins (General Purpose Input/Output)**: These pins allow you to connect various external devices, such as sensors, LEDs, and switches, for control and interaction.
 
