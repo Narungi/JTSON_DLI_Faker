@@ -2,7 +2,7 @@
 
 # **Day 1**
 
-### **1. NVIDIA Jetson Nano Developer Kit**
+### **1. NVIDIA Jetson Nano Developer Kit*
 
 ![잭슨](https://github.com/user-attachments/assets/7b49c6a7-f222-4f06-922c-1d3ed24d0889)
 
@@ -71,5 +71,83 @@ Here are the main icons displayed on the Ubuntu desktop of the NVIDIA Jetson Nan
 
 6. **Set Korean/English Switch Key** : In the Global Config tab, click on Trigger Input Method and press the key you want to use for switching between Korean and English (e.g., the Korean/English key).
 ![1-5 한영키 전환](https://github.com/user-attachments/assets/023052f2-e468-4786-94a6-79785b9ff364)
+
+DAY 2  
+#1 What is Classification?
+Classification refers to the process of organizing or grouping entities based on their shared attributes or common characteristics. For example, grouping apples into one category and bananas into another.
+
+Jetson Nano Project Overview
+The guide introduces a PyTorch-based project where:
+
+A deep neural network is trained on the Jetson Nano.
+The trained model classifies images collected using a camera.
+Development Environment
+The project is run in Headless Mode, meaning no monitor is connected to the Jetson Nano.
+A Raspberry Pi Camera v2.x is recommended for capturing data.
+No internet connection is required for this setup.
+Let me know if you need further clarification or additional details about classification, Jetson Nano, or this specific project.
+
+#2. Camera Configuration in Jetson Nano
+(1) Import Required Libraries:
+
+For USB cameras, import the USBCamera module:
+python
+"from jetcam.usb_camera import USBCamera"
+
+For CSI cameras (e.g., Raspberry Pi Camera Module V2), import the CSICamera module:
+python
+"from jetcam.csi_camera import CSICamera"
+
+(2) Camera Selection:
+
+If you are using a USB camera (e.g., Logitech C270 webcam):
+Uncomment the following line in your code and ensure the capture_device is set correctly:
+python
+"# camera = USBCamera(width=224, height=224, capture_device=0)"
+If you are using a CSI camera (e.g., Raspberry Pi Camera Module V2):
+Uncomment the following line instead:
+python
+"camera = CSICamera(width=224, height=224, capture_device=0)"
+(3) Verify Device Configuration:
+
+Confirm the capture_device number (e.g., 0 in this case) corresponds to the device ID recognized by your Jetson Nano.
+
+#3. Camera Initialization Code Summary
+(1) Import Camera Libraries:
+
+Import the required modules for camera handling:
+python
+코드 복사
+from jetcam.usb_camera import USBCamera
+from jetcam.csi_camera import CSICamera
+Select the Camera Type:
+
+For a USB camera (e.g., Logitech C270):
+Uncomment this line to initialize the camera:
+python
+"# camera = USBCamera(width=224, height=224, capture_device=0)"
+For a CSI camera (e.g., Raspberry Pi Camera Module V2):
+Uncomment this line:
+python
+camera = CSICamera(width=224, height=224, capture_device=0)
+Start the Camera:
+
+Enable the camera by setting its running attribute to True:
+python
+코드 복사
+camera.running = True
+Confirmation Output:
+
+Print a message to confirm successful camera initialization:
+python
+코드 복사
+print("camera created")
+If successful, the output will display: camera created.
+![image](https://github.com/user-attachments/assets/b9f001af-fcfa-4369-a707-4d738d2b915d)
+
+![image](https://github.com/user-attachments/assets/cfa90366-f84b-4a0c-b7a1-6e37470022b8)
+![image](https://github.com/user-attachments/assets/6c2369e0-f57c-4018-a9f3-27bdf1b9d7ae)
+![image](https://github.com/user-attachments/assets/cbb78c29-2229-4006-a6cb-44c8f3213d3d)
+
 
 
