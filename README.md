@@ -73,6 +73,7 @@ Here are the main icons displayed on the Ubuntu desktop of the NVIDIA Jetson Nan
 ![1-5 한영키 전환](https://github.com/user-attachments/assets/023052f2-e468-4786-94a6-79785b9ff364)
 
 # **Day 2**
+
 ### **1. Guide to Installing and Using jtop**
 ![image](https://github.com/user-attachments/assets/d079f666-bbf1-4942-b85b-2fbaf9a67536)
 
@@ -90,6 +91,7 @@ Here are the main icons displayed on the Ubuntu desktop of the NVIDIA Jetson Nan
   - Shows hardware and software details, including the JetPack version.
 
 ## **2) How to Install jtop**
+
 ### *(1) Install Python3-pip*
 Before installing `jtop`, you need to install `pip`, the Python package manager. Run the following commands:
 
@@ -146,12 +148,12 @@ Jetson Nano may experience performance degradation or system instability due to 
 
 ## **3) How to Install the Cooling Fan**
 
-### *(1) Connect the Cooling Fan*
+### (1) *Connect the Cooling Fan*
 - Attach the cooling fan's red (+), black (-), and yellow (PWM) cables to the pin headers on the Jetson Nano.
   - Pin configuration: **5V, GND, PWM**
 - Refer to the image below for proper connection.
 
-### *(2) Fix the Fan*
+### (2) *Fix the Fan*
 - Place the fan on top of the Nano's heatsink and secure it with screws.
 - If screws are unavailable, you can use adhesive or double-sided tape.
 
@@ -170,6 +172,7 @@ sudo sh -c 'echo 128 > /sys/devices/pwm-fan/target_pwm'
 - After the fan operates, the temperature may drop by approximately 10°C.
 
 ### **3. USB Camera Setup on Jetson Nano**
+
 ## **1) Camera Used**
 We used the **Logitech C270 USB Camera**, which is compatible with Jetson Nano and easy to configure.
 ![image](https://github.com/user-attachments/assets/3717d0dc-7b1d-4a75-a544-f834eaf94ddd)
@@ -204,7 +207,9 @@ cd USB-Camera
 ![image](https://github.com/user-attachments/assets/780daafd-42ff-4eec-acb4-f29e5dce62f7)
 
 ### **4.Face Detection with USB Camera on Jetson Nano**
+
 ![image](https://github.com/user-attachments/assets/04444234-83e6-489c-b46b-b661ba009a24)
+
 ## **1) Prerequisites**
 Make sure you have followed the steps to set up the USB camera as described in the previous sections.
 
