@@ -2,7 +2,7 @@
 
 # **Day 1**
 
-### **1. NVIDIA Jetson Nano Developer Kit*
+### **1. NVIDIA Jetson Nano Developer Kit**
 
 ![잭슨](https://github.com/user-attachments/assets/7b49c6a7-f222-4f06-922c-1d3ed24d0889)
 
@@ -39,7 +39,7 @@ Here are the steps to install **Ubuntu** on the NVIDIA Jetson Nano. Ubuntu is a 
 4. **Completing the Installation**: After the setup, the system will finalize the installation and apply the configurations. Once done, you’ll have a fully functional Ubuntu environment on the Jetson Nano.
 
 
-### 3. Desktop Icons on NVIDIA Jetson Nano with Ubuntu
+### **3. Desktop Icons on NVIDIA Jetson Nano with Ubuntu**
 Here are the main icons displayed on the Ubuntu desktop of the NVIDIA Jetson Nano:
 ![1-3 바탕화면](https://github.com/user-attachments/assets/4fb39b2f-8e03-4cf5-a692-05d14a7781d9)
 **Chromium Web Browser**: A web browser available by default on Ubuntu, used to browse the internet.
@@ -54,7 +54,7 @@ Here are the main icons displayed on the Ubuntu desktop of the NVIDIA Jetson Nan
 
 - **NVIDIA Jetson Community**: A link to the Jetson user community, where users can interact and share knowledge with other Jetson enthusiasts.
 
-### 4. Installing Korean Input Method on Ubuntu
+### **4. Installing Korean Input Method on Ubuntu**
 ![1-4 한글설치](https://github.com/user-attachments/assets/5bbc03e7-b5cb-4524-a108-fe3a8d3143c1)
 
 1. **Install Fcitx Korean Input Method**: Open the terminal and enter the following commands to install the Fcitx Korean input method:
@@ -72,7 +72,74 @@ Here are the main icons displayed on the Ubuntu desktop of the NVIDIA Jetson Nan
 6. **Set Korean/English Switch Key** : In the Global Config tab, click on Trigger Input Method and press the key you want to use for switching between Korean and English (e.g., the Korean/English key).
 ![1-5 한영키 전환](https://github.com/user-attachments/assets/023052f2-e468-4786-94a6-79785b9ff364)
 
-DAY 2  
+# **Day 2**
+![image](https://github.com/user-attachments/assets/d079f666-bbf1-4942-b85b-2fbaf9a67536)
+### **1. Guide to Installing and Using jtop**
+
+## **1) What is jtop?**
+`jtop` is a powerful tool for monitoring the system status of NVIDIA Jetson devices in real time. It provides detailed information about the system resources on devices like the Jetson Nano, including:
+
+- **Temperature**: Displays the temperature of key components such as the CPU, GPU, and PMIC (Power Management IC).
+- **Resource Usage**:
+  - CPU and GPU usage.
+  - Memory and swap usage.
+  - Power consumption.
+- **Process Management**:
+  - Lists running processes and their resource usage.
+- **Device Information**:
+  - Shows hardware and software details, including the JetPack version.
+
+## **2) How to Install jtop**
+### *(1) Install Python3-pip*
+Before installing `jtop`, you need to install `pip`, the Python package manager. Run the following commands:
+
+```bash
+sudo apt update
+sudo apt install python3-pip -y
+```
+During installation, you may see the following message:
+```bash
+Do you want to continue? [Y/n]
+```
+Enter Y to proceed.
+
+### *(2) Install jetson-stats*
+The jtop tool requires the jetson-stats library. To install the latest version, run:
+```bash
+sudo -H pip3 install -U jetson-stats
+```
+
+### *(3) Verify Installation*
+After installation, confirm that jetson-stats is properly installed by checking its version:
+```bash
+jetson-stats --version
+```
+Example output:
+```bash
+jetson-stats-4.2.3
+```
+### *(4) Troubleshooting*
+If any errors occur during installation, update your system and try again:
+```bash
+sudo apt-get update
+sudo apt-get upgrade
+```
+After updating, reinstall jetson-stats:
+```bash
+sudo -H pip3 install -U jetson-stats
+```
+### *(5) Run jtop*
+Once installed, you can run jtop using the following command:
+```bash
+jtop
+```
+
+
+
+
+
+
+# **Day 3**
 #1 What is Classification?
 Classification refers to the process of organizing or grouping entities based on their shared attributes or common characteristics. For example, grouping apples into one category and bananas into another.
 
