@@ -73,8 +73,8 @@ Here are the main icons displayed on the Ubuntu desktop of the NVIDIA Jetson Nan
 ![1-5 한영키 전환](https://github.com/user-attachments/assets/023052f2-e468-4786-94a6-79785b9ff364)
 
 # **Day 2**
-![image](https://github.com/user-attachments/assets/d079f666-bbf1-4942-b85b-2fbaf9a67536)
 ### **1. Guide to Installing and Using jtop**
+![image](https://github.com/user-attachments/assets/d079f666-bbf1-4942-b85b-2fbaf9a67536)
 
 ## **1) What is jtop?**
 `jtop` is a powerful tool for monitoring the system status of NVIDIA Jetson devices in real time. It provides detailed information about the system resources on devices like the Jetson Nano, including:
@@ -134,10 +134,100 @@ Once installed, you can run jtop using the following command:
 jtop
 ```
 
+### **2.Jetson Nano Cooling Fan Installation Guide**
+![image](https://github.com/user-attachments/assets/d5961ef5-b318-42d2-8655-6f0dfadc7c54)
+## **1) Why Install a Cooling Fan?**
+Jetson Nano may experience performance degradation or system instability due to high temperatures. Installing a cooling fan helps to manage the device's temperature efficiently.
 
+## **2) Required Materials**
+1. Cooling fan (PWM-supported, 5V)
+2. Screwdriver and attachment tools
+3. Jetson Nano device
 
+## **3) How to Install the Cooling Fan**
 
+### *(1) Connect the Cooling Fan*
+- Attach the cooling fan's red (+), black (-), and yellow (PWM) cables to the pin headers on the Jetson Nano.
+  - Pin configuration: **5V, GND, PWM**
+- Refer to the image below for proper connection.
 
+### *(2) Fix the Fan*
+- Place the fan on top of the Nano's heatsink and secure it with screws.
+- If screws are unavailable, you can use adhesive or double-sided tape.
+
+## **4) Configuring the Cooling Fan**
+
+### *(1)Open the Terminal*
+Run the following command in the terminal to control the fan's speed:
+
+```bash
+sudo sh -c 'echo 128 > /sys/devices/pwm-fan/target_pwm'
+```
+- 128 sets the fan speed. (Range: 0–255)
+- Adjust the value to set the desired fan speed.
+### *(2) Check the Temperature*
+- Use the jtop command to monitor the current temperature.
+- After the fan operates, the temperature may drop by approximately 10°C.
+
+### **3. USB Camera Setup on Jetson Nano**
+## **1) Camera Used**
+We used the **Logitech C270 USB Camera**, which is compatible with Jetson Nano and easy to configure.
+![image](https://github.com/user-attachments/assets/3717d0dc-7b1d-4a75-a544-f834eaf94ddd)
+
+## **2) Verifying USB Camera Connection**
+## *(1) Connect the Camera:*
+   - Plug the USB camera into one of the Jetson Nano's USB ports.
+
+## *(2) Check Camera Recognition:*
+   Open the terminal and run the following command to check if the camera is recognized:
+   ```bash
+   ls /dev/vi*
+   ```
+- Example output:
+```bash
+crw-rw----+ 1 root video 81, 0 Jan 7 18:29 /dev/video0
+```
+- If /dev/video0 appears, the camera is recognized successfully.
+
+## **3) Downloading USB Camera Code**
+- Clone the GitHub Repository: Use the following command to download the USB Camera setup code from GitHub:
+```bash
+git clone https://github.com/jetsonhacks/USB-Camera.git
+```
+- Navigate to the Directory: Move into the downloaded directory:
+```bash
+cd USB-Camera
+```
+- Verify Directory Contents: Use the ls command to view the files in the directory.
+
+## **4) Ready to Use**
+![image](https://github.com/user-attachments/assets/780daafd-42ff-4eec-acb4-f29e5dce62f7)
+
+### **4.Face Detection with USB Camera on Jetson Nano**
+![image](https://github.com/user-attachments/assets/04444234-83e6-489c-b46b-b661ba009a24)
+## **1) Prerequisites**
+Make sure you have followed the steps to set up the USB camera as described in the previous sections.
+
+## **2) Navigate to the USB Camera Directory**
+Navigate to the directory where the USB camera scripts were cloned:
+
+```bash
+cd USB-Camera
+```
+List the files in the directory to verify the presence of the face detection script:
+```bash
+ls
+```
+You should see the following files:
+- face-detect-usb.py
+- usb-camera-gst.py
+- usb-camera-simple.py
+  
+## **3) Run the Face Detection Script**
+To perform face detection using the USB camera, execute the following command:
+```bash
+python3 face-detect-usb.py
+```
 
 # **Day 3**
 #1 What is Classification?
