@@ -379,15 +379,14 @@ void loop()
         starttime = millis(); // 시간 초기화
     }
 }
-()
 
 
 
 
-![image](https://github.com/user-attachments/assets/94499dce-7ec7-4ad5-91d5-2b4eff764d09)
 
+ ![image](https://github.com/user-attachments/assets/94499dce-7ec7-4ad5-91d5-2b4eff764d09)
 
-4. Observations
+ 4. Observations
 (1) The Arduino board successfully communicated with the Grove dust sensor, providing real-time dust concentration data.
 (2) Using the 30-second interval sampling, the sensor outputs consistent and accurate readings.
 (3 The results were displayed in the Arduino serial monitor for further analysis.
