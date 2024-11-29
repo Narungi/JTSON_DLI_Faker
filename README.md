@@ -235,81 +235,157 @@ python3 face-detect-usb.py
 ```
 
 # **Day 3**
-#1 What is Classification?
-Classification refers to the process of organizing or grouping entities based on their shared attributes or common characteristics. For example, grouping apples into one category and bananas into another.
+1. Introduction
+This report summarizes the project conducted as part of the microdegree coursework, focusing on implementing a real-time hand gesture recognition system using NVIDIA Jetson Nano. The primary objective was to utilize machine learning for classifying hand gestures (e.g., thumbs up, thumbs down) using a camera.
 
-Jetson Nano Project Overview
-The guide introduces a PyTorch-based project where:
+2. Background
+Classification Overview: Classification is the process of grouping entities based on shared attributes or characteristics. In this project, images captured by a camera were classified into predefined categories (e.g., "thumbs up" and "thumbs down") using a deep learning model.
 
-A deep neural network is trained on the Jetson Nano.
-The trained model classifies images collected using a camera.
-Development Environment
-The project is run in Headless Mode, meaning no monitor is connected to the Jetson Nano.
-A Raspberry Pi Camera v2.x is recommended for capturing data.
-No internet connection is required for this setup.
-Let me know if you need further clarification or additional details about classification, Jetson Nano, or this specific project.
-
-#2. Camera Configuration in Jetson Nano
-(1) Import Required Libraries:
-
-For USB cameras, import the USBCamera module:
-python
-"from jetcam.usb_camera import USBCamera"
-
-For CSI cameras (e.g., Raspberry Pi Camera Module V2), import the CSICamera module:
-python
-"from jetcam.csi_camera import CSICamera"
-
-(2) Camera Selection:
-
-If you are using a USB camera (e.g., Logitech C270 webcam):
-Uncomment the following line in your code and ensure the capture_device is set correctly:
-python
-"# camera = USBCamera(width=224, height=224, capture_device=0)"
-If you are using a CSI camera (e.g., Raspberry Pi Camera Module V2):
-Uncomment the following line instead:
-python
-"camera = CSICamera(width=224, height=224, capture_device=0)"
-(3) Verify Device Configuration:
-
-Confirm the capture_device number (e.g., 0 in this case) corresponds to the device ID recognized by your Jetson Nano.
-
-#3. Camera Initialization Code Summary
-(1) Import Camera Libraries:
-
-Import the required modules for camera handling:
-python
-코드 복사
-from jetcam.usb_camera import USBCamera
-from jetcam.csi_camera import CSICamera
-Select the Camera Type:
-
-For a USB camera (e.g., Logitech C270):
-Uncomment this line to initialize the camera:
-python
-"# camera = USBCamera(width=224, height=224, capture_device=0)"
-For a CSI camera (e.g., Raspberry Pi Camera Module V2):
-Uncomment this line:
-python
-camera = CSICamera(width=224, height=224, capture_device=0)
-Start the Camera:
-
-Enable the camera by setting its running attribute to True:
-python
-코드 복사
-camera.running = True
-Confirmation Output:
-
-Print a message to confirm successful camera initialization:
-python
-코드 복사
-print("camera created")
-If successful, the output will display: camera created.
 ![image](https://github.com/user-attachments/assets/b9f001af-fcfa-4369-a707-4d738d2b915d)
 
+3. Project Details
+3.1. Jetson Nano Setup
+- Device: NVIDIA Jetson Nano
+- Mode of Operation: Headless mode (no monitor connected)
+- Camera Used: Raspberry Pi Camera Module V2.x
+- Software Framework: PyTorch for training and deploying the neural network
+- Environment: No internet connection was required for the setup.
+
+3.2. Camera Configuration
+1. Camera Selection:
+- CSI Camera (e.g., Raspberry Pi Camera Module V2): 
+ from jetcam.csi_camera import CSICamera
+camera = CSICamera(width=224, height=224, capture_device=0)
+ - This camera was chosen for its compatibility and reliability with Jetson Nano.
+ - 
+Alternative (USB Camera):
+ - USB cameras such as the Logitech C270 were considered as an alternative
+
+2. Camera Initialization:
+ - The camera was activated with the following commands:
+camera.running = True
+print("camera created")
+
+ - Successful initialization was verified when the output displayed:
+  camera created
 ![image](https://github.com/user-attachments/assets/cfa90366-f84b-4a0c-b7a1-6e37470022b8)
+3.3. Implementation
+Steps:
+
+1. Data Collection:
+- Images of gestures such as "thumbs up" and "thumbs down" were collected using the camera.
+2.Model Training:
+- A deep learning model was trained on Jetson Nano to classify the collected images into the appropriate categories.
+
+ ![image](https://github.com/user-attachments/assets/6c2369e0-f57c-4018-a9f3-27bdf1b9d7ae)
+3. Real-Time Prediction:
+- After training, the model was deployed to perform live predictions.
+- Example outcomes:
+ - A "thumbs up" gesture was correctly classified as "thumbs up."
+ - A "thumbs down" gesture was correctly classified as "thumbs down."
 ![image](https://github.com/user-attachments/assets/6c2369e0-f57c-4018-a9f3-27bdf1b9d7ae)
 ![image](https://github.com/user-attachments/assets/cbb78c29-2229-4006-a6cb-44c8f3213d3d)
 
+4. Observations
+1. The system effectively captured images and processed real-time predictions.
+2. The gesture recognition was accurate, with clear differentiation between "thumbs up" and "thumbs down."
+3. During testing, a "System throttled due to Over-current" warning was observed, suggesting the need for improved power management or cooling solutions.
+
+5. Conclusion
+This project successfully demonstrated the capability of NVIDIA Jetson Nano to handle real-time computer vision tasks using a simple camera setup. The implementation highlighted the potential for using affordable, compact devices for machine learning applications.
+
+# **DAY 4**
+:  Reading Sensor Signals with Jetson Nano
+Objective : 
+The focus of today's session was to integrate Arduino with Jetson Nano to read and process signals from a Grove dust sensor. This included setting up the development environment for Arduino, performing basic functionality tests with the Blink program, and implementing code to measure dust concentration.
+
+1. Arduino Installation
+To enable Arduino development:
+
+1. Downloaded the Arduino package from the official website.
+(2) Updated the Linux package manager using
+(3) Installed Arduino software:
+(4) Verified the installation by launching Arduino:
+ 
+2. Arduino Basic Test: Blink
+- Tested the Arduino setup using the Blink example, which toggles an LED on and off every second.
+- Successfully confirmed Arduino's functionality with the following code:
+![image](https://github.com/user-attachments/assets/789f8b37-ca81-401c-a8bf-0523de1b6ddf)
+![image](https://github.com/user-attachments/assets/f821d253-40f1-4626-b1fa-7ef5de36cd68)
+![image](https://github.com/user-attachments/assets/a5f88aa1-71d4-4dae-9458-64147a8f10d2)
+-> Arduino connected with the Grove dust sensor and powered via USB. 
+
+3. Dust Sensor Integration
+Sensor Details:
+- Sensor used: Grove dust sensor
+- Connection: Connected to pin 8 on the Arduino board.
+Implementation:
+The code below was implemented to measure dust concentration in ug/m3 (micrograms per cubic meter) over 30-second intervals:
+![image](https://github.com/user-attachments/assets/692aa760-2766-4cb0-b29f-7fa3458a86f1)
+-> Full setup with the sensor connected to the Arduino.
+
+![image](https://github.com/user-attachments/assets/e6e20b0b-a6da-4fd4-9308-11a521dbf278)
+ # Dust Sensor Integration
+#### **Dust Sensor Code Implementation**
+The following code is a program that uses the Grove Dust Sensor to measure dust concentration in real-time. The sensor calculates the concentration based on the duration of LOW signals, and the results are output in units of μg/m³.
+
+```cpp
+int pin = 8;
+unsigned long duration;
+unsigned long starttime;
+unsigned long sampletime_ms = 30000;  // 30초 동안 샘플링
+unsigned long lowpulseoccupancy = 0;
+float ratio = 0;
+float concentration = 0;
+
+void setup()
+{
+    Serial.begin(9600);  // 시리얼 통신 시작
+    pinMode(pin, INPUT); // 센서를 INPUT 모드로 설정
+    starttime = millis(); // 시작 시간 초기화
+    Serial.println("미세먼지 측정을 시작합니다...");
+    Serial.println("==============================");
+}
+
+void loop()
+{
+    duration = pulseIn(pin, LOW); // LOW 신호 지속시간 측정
+    lowpulseoccupancy += duration;
+
+    if ((millis() - starttime) > sampletime_ms) // 30초 간격으로 계산
+    {
+        ratio = lowpulseoccupancy / (sampletime_ms * 10.0); // LOW 신호 비율 계산
+        concentration = 1.1 * pow(ratio, 3) - 3.8 * pow(ratio, 2) + 520 * ratio + 0.62; // 농도 계산 (ug/m³)
+
+        Serial.println("==============================");
+        Serial.print("미세먼지 농도: ");
+        Serial.print(concentration);
+        Serial.println(" ug/m³");
+
+        // 대기질 상태 표시
+        Serial.print("대기질 상태: ");
+        if (concentration <= 30) {
+            Serial.println("좋음");
+        } else if (concentration <= 80) {
+            Serial.println("보통");
+        } else if (concentration <= 150) {
+            Serial.println("나쁨");
+        } else {
+            Serial.println("매우 나쁨");
+        }
+
+        Serial.println("------------------------------");
+        lowpulseoccupancy = 0; // 초기화
+        starttime = millis(); // 시간 초기화
+    }
+}
+
+4. Observations
+(1) The Arduino board successfully communicated with the Grove dust sensor, providing real-time dust concentration data.
+(2) Using the 30-second interval sampling, the sensor outputs consistent and accurate readings.
+(3 The results were displayed in the Arduino serial monitor for further analysis.
+(4) Conversion equations from the sensor datasheet were implemented to convert the pulse duration to dust concentration.
+ Arduino basic, blink 활용
+![image](https://github.com/user-attachments/assets/a9e3edca-6082-4833-891e-8f986d8512e1
 
 
