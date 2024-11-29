@@ -268,6 +268,7 @@ print("camera created")
 
  - Successful initialization was verified when the output displayed:
   camera created
+
 ![image](https://github.com/user-attachments/assets/cfa90366-f84b-4a0c-b7a1-6e37470022b8)
 3.3. Implementation
 Steps:
@@ -283,6 +284,7 @@ Steps:
 - Example outcomes:
  - A "thumbs up" gesture was correctly classified as "thumbs up."
  - A "thumbs down" gesture was correctly classified as "thumbs down."
+
 ![image](https://github.com/user-attachments/assets/6c2369e0-f57c-4018-a9f3-27bdf1b9d7ae)
 ![image](https://github.com/user-attachments/assets/cbb78c29-2229-4006-a6cb-44c8f3213d3d)
 
@@ -310,6 +312,7 @@ To enable Arduino development:
 2. Arduino Basic Test: Blink
 - Tested the Arduino setup using the Blink example, which toggles an LED on and off every second.
 - Successfully confirmed Arduino's functionality with the following code:
+
 ![image](https://github.com/user-attachments/assets/789f8b37-ca81-401c-a8bf-0523de1b6ddf)
 ![image](https://github.com/user-attachments/assets/f821d253-40f1-4626-b1fa-7ef5de36cd68)
 ![image](https://github.com/user-attachments/assets/a5f88aa1-71d4-4dae-9458-64147a8f10d2)
@@ -321,10 +324,12 @@ Sensor Details:
 - Connection: Connected to pin 8 on the Arduino board.
 Implementation:
 The code below was implemented to measure dust concentration in ug/m3 (micrograms per cubic meter) over 30-second intervals:
+
 ![image](https://github.com/user-attachments/assets/692aa760-2766-4cb0-b29f-7fa3458a86f1)
 -> Full setup with the sensor connected to the Arduino.
 
 ![image](https://github.com/user-attachments/assets/e6e20b0b-a6da-4fd4-9308-11a521dbf278)
+
  # Dust Sensor Integration
 #### **Dust Sensor Code Implementation**
 The following code is a program that uses the Grove Dust Sensor to measure dust concentration in real-time. The sensor calculates the concentration based on the duration of LOW signals, and the results are output in units of μg/m³.
@@ -334,9 +339,9 @@ The following code is a program that uses the Grove Dust Sensor to measure dust 
  4. Observations
 (1) The Arduino board successfully communicated with the Grove dust sensor, providing real-time dust concentration data.
 (2) Using the 30-second interval sampling, the sensor outputs consistent and accurate readings.
-(3 The results were displayed in the Arduino serial monitor for further analysis.
+(3) The results were displayed in the Arduino serial monitor for further analysis.
 (4) Conversion equations from the sensor datasheet were implemented to convert the pulse duration to dust concentration.
- Arduino basic, blink 활용
+ Arduino basic, blink 
 
 ```cpp
 int pin = 8;
