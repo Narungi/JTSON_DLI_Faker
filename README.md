@@ -380,6 +380,8 @@ void loop()
     }
 }
 
+![image](https://github.com/user-attachments/assets/cf003a4c-aa22-45ad-b709-6b57684a3b67)
+
 4. Observations
 (1) The Arduino board successfully communicated with the Grove dust sensor, providing real-time dust concentration data.
 (2) Using the 30-second interval sampling, the sensor outputs consistent and accurate readings.
