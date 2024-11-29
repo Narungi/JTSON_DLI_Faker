@@ -329,8 +329,18 @@ The code below was implemented to measure dust concentration in ug/m3 (microgram
 #### **Dust Sensor Code Implementation**
 The following code is a program that uses the Grove Dust Sensor to measure dust concentration in real-time. The sensor calculates the concentration based on the duration of LOW signals, and the results are output in units of μg/m³.
 
+ ![image](https://github.com/user-attachments/assets/94499dce-7ec7-4ad5-91d5-2b4eff764d09)
+
+ 4. Observations
+(1) The Arduino board successfully communicated with the Grove dust sensor, providing real-time dust concentration data.
+(2) Using the 30-second interval sampling, the sensor outputs consistent and accurate readings.
+(3 The results were displayed in the Arduino serial monitor for further analysis.
+(4) Conversion equations from the sensor datasheet were implemented to convert the pulse duration to dust concentration.
+ Arduino basic, blink 활용
+
 ```cpp
 int pin = 8;
+
 unsigned long duration;
 unsigned long starttime;
 unsigned long sampletime_ms = 30000;  // 30초 동안 샘플링
@@ -378,20 +388,7 @@ void loop()
         lowpulseoccupancy = 0; // 초기화
         starttime = millis(); // 시간 초기화
     }
-}
 
-
-
-
-
- ![image](https://github.com/user-attachments/assets/94499dce-7ec7-4ad5-91d5-2b4eff764d09)
-
- 4. Observations
-(1) The Arduino board successfully communicated with the Grove dust sensor, providing real-time dust concentration data.
-(2) Using the 30-second interval sampling, the sensor outputs consistent and accurate readings.
-(3 The results were displayed in the Arduino serial monitor for further analysis.
-(4) Conversion equations from the sensor datasheet were implemented to convert the pulse duration to dust concentration.
- Arduino basic, blink 활용
 
 
 
