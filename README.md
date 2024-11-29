@@ -388,6 +388,8 @@ void loop()
 (3 The results were displayed in the Arduino serial monitor for further analysis.
 (4) Conversion equations from the sensor datasheet were implemented to convert the pulse duration to dust concentration.
  Arduino basic, blink 활용
-![image](https://github.com/user-attachments/assets/a9e3edca-6082-4833-891e-8f986d8512e1
+
+![image](https://github.com/user-attachments/assets/b0dcc15b-f182-4170-afcf-59b16ef1dcfa)
+
 
 
