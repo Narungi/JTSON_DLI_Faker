@@ -380,7 +380,8 @@ void loop()
     }
 }
 
-![image](https://github.com/user-attachments/assets/cf003a4c-aa22-45ad-b709-6b57684a3b67)
+ ![image](https://github.com/user-attachments/assets/94499dce-7ec7-4ad5-91d5-2b4eff764d09)
+
 
 4. Observations
 (1) The Arduino board successfully communicated with the Grove dust sensor, providing real-time dust concentration data.
@@ -389,7 +390,6 @@ void loop()
 (4) Conversion equations from the sensor datasheet were implemented to convert the pulse duration to dust concentration.
  Arduino basic, blink 활용
 
-![image](https://github.com/user-attachments/assets/b0dcc15b-f182-4170-afcf-59b16ef1dcfa)
 
 
 
