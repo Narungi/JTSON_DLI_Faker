@@ -1,0 +1,98 @@
+# **DAY 4**
+:  Reading Sensor Signals with Jetson Nano
+Objective : 
+The focus of today's session was to integrate Arduino with Jetson Nano to read and process signals from a Grove dust sensor. This included setting up the development environment for Arduino, performing basic functionality tests with the Blink program, and implementing code to measure dust concentration.
+
+1. Arduino Installation
+To enable Arduino development:
+
+1. Downloaded the Arduino package from the official website.
+(2) Updated the Linux package manager using
+(3) Installed Arduino software:
+(4) Verified the installation by launching Arduino:
+ 
+2. Arduino Basic Test: Blink
+- Tested the Arduino setup using the Blink example, which toggles an LED on and off every second.
+- Successfully confirmed Arduino's functionality with the following code:
+
+![image](https://github.com/user-attachments/assets/789f8b37-ca81-401c-a8bf-0523de1b6ddf)
+![image](https://github.com/user-attachments/assets/f821d253-40f1-4626-b1fa-7ef5de36cd68)
+![image](https://github.com/user-attachments/assets/a5f88aa1-71d4-4dae-9458-64147a8f10d2)
+-> Arduino connected with the Grove dust sensor and powered via USB. 
+
+3. Dust Sensor Integration
+Sensor Details:
+- Sensor used: Grove dust sensor
+- Connection: Connected to pin 8 on the Arduino board.
+Implementation:
+The code below was implemented to measure dust concentration in ug/m3 (micrograms per cubic meter) over 30-second intervals:
+
+![image](https://github.com/user-attachments/assets/692aa760-2766-4cb0-b29f-7fa3458a86f1)
+-> Full setup with the sensor connected to the Arduino.
+
+![image](https://github.com/user-attachments/assets/e6e20b0b-a6da-4fd4-9308-11a521dbf278)
+
+ # Dust Sensor Integration
+#### **Dust Sensor Code Implementation**
+The following code is a program that uses the Grove Dust Sensor to measure dust concentration in real-time. The sensor calculates the concentration based on the duration of LOW signals, and the results are output in units of μg/m³.
+
+ ![image](https://github.com/user-attachments/assets/94499dce-7ec7-4ad5-91d5-2b4eff764d09)
+
+ 4. Observations
+(1) The Arduino board successfully communicated with the Grove dust sensor, providing real-time dust concentration data.
+(2) Using the 30-second interval sampling, the sensor outputs consistent and accurate readings.
+(3) The results were displayed in the Arduino serial monitor for further analysis.
+(4) Conversion equations from the sensor datasheet were implemented to convert the pulse duration to dust concentration.
+ Arduino basic, blink 
+
+```cpp
+int pin = 8;
+
+unsigned long duration;
+unsigned long starttime;
+unsigned long sampletime_ms = 30000;  // 30초 동안 샘플링
+unsigned long lowpulseoccupancy = 0;
+float ratio = 0;
+float concentration = 0;
+
+void setup()
+{
+    Serial.begin(9600);  // 시리얼 통신 시작
+    pinMode(pin, INPUT); // 센서를 INPUT 모드로 설정
+    starttime = millis(); // 시작 시간 초기화
+    Serial.println("미세먼지 측정을 시작합니다...");
+    Serial.println("==============================");
+}
+
+void loop()
+{
+    duration = pulseIn(pin, LOW); // LOW 신호 지속시간 측정
+    lowpulseoccupancy += duration;
+
+    if ((millis() - starttime) > sampletime_ms) // 30초 간격으로 계산
+    {
+        ratio = lowpulseoccupancy / (sampletime_ms * 10.0); // LOW 신호 비율 계산
+        concentration = 1.1 * pow(ratio, 3) - 3.8 * pow(ratio, 2) + 520 * ratio + 0.62; // 농도 계산 (ug/m³)
+
+        Serial.println("==============================");
+        Serial.print("미세먼지 농도: ");
+        Serial.print(concentration);
+        Serial.println(" ug/m³");
+
+        // 대기질 상태 표시
+        Serial.print("대기질 상태: ");
+        if (concentration <= 30) {
+            Serial.println("좋음");
+        } else if (concentration <= 80) {
+            Serial.println("보통");
+        } else if (concentration <= 150) {
+            Serial.println("나쁨");
+        } else {
+            Serial.println("매우 나쁨");
+        }
+
+        Serial.println("------------------------------");
+        lowpulseoccupancy = 0; // 초기화
+        starttime = millis(); // 시간 초기화
+    }
+
