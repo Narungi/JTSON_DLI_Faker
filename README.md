@@ -235,15 +235,15 @@ python3 face-detect-usb.py
 ```
 
 # **Day 3**
-1. Introduction
+# 1. Introduction
 This report summarizes the project conducted as part of the microdegree coursework, focusing on implementing a real-time hand gesture recognition system using NVIDIA Jetson Nano. The primary objective was to utilize machine learning for classifying hand gestures (e.g., thumbs up, thumbs down) using a camera.
 
-2. Background
+# 2. Background
 Classification Overview: Classification is the process of grouping entities based on shared attributes or characteristics. In this project, images captured by a camera were classified into predefined categories (e.g., "thumbs up" and "thumbs down") using a deep learning model.
 
 ![image](https://github.com/user-attachments/assets/b9f001af-fcfa-4369-a707-4d738d2b915d)
 
-3. Project Details
+# 3. Project Details
 3.1. Jetson Nano Setup
 - Device: NVIDIA Jetson Nano
 - Mode of Operation: Headless mode (no monitor connected)
@@ -288,7 +288,7 @@ Steps:
 ![image](https://github.com/user-attachments/assets/6c2369e0-f57c-4018-a9f3-27bdf1b9d7ae)
 ![image](https://github.com/user-attachments/assets/cbb78c29-2229-4006-a6cb-44c8f3213d3d)
 
-4. Observations
+# 4. Observations
 1. The system effectively captured images and processed real-time predictions.
 2. The gesture recognition was accurate, with clear differentiation between "thumbs up" and "thumbs down."
 3. During testing, a "System throttled due to Over-current" warning was observed, suggesting the need for improved power management or cooling solutions.
